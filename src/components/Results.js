@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Results.css';
 
 import Card from './common/Card';
 
@@ -22,7 +23,7 @@ class Results extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="resultCards">
 				{this.state.pokemonList.map((pokemon, index) => (
 					<Card key={pokemon.name} id={index + 1} pokemon={pokemon} />
 				))}

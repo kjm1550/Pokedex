@@ -23,7 +23,7 @@ class Card extends React.Component {
 	render() {
 		return (
 			<div className="pokemonCard">
-				<h3>{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
+				<h3 className="cardHeader">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
 				<img src={this.state.pokemonSprites} />
 				<p>
 					Height: {this.state.pokemonInfo.height} kg
