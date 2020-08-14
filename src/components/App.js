@@ -10,7 +10,7 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<h1>Pokedex</h1>
-				{/* <PokemonSearch /> */}
+				<PokemonSearch />
 				<Results />
 			</div>
 		);
