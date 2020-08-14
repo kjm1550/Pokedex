@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.App {
+	font-family: 'Roboto', sans-serif;
+	min-height: 100vh;
+	background: #d3cce3; /* fallback */
+	background: -webkit-linear-gradient(to bottom, #e9e4f0, #d3cce3);
+	background: linear-gradient(to bottom, #e9e4f0, #d3cce3);
+}
+h1 {
+	text-align: center;
+	padding: 24px;
+}
