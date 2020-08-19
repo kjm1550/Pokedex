@@ -1,0 +1,29 @@
+.searchTool {
+	margin-top: 24px;
+	p {
+		margin: 0 auto 8px;
+		text-align: center;
+		width: 250px;
+		font-size: 20px;
+	}
+	.searchToolButton {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		button {
+			background: #ffffff;
+			font-size: 16px;
+			text-transform: capitalize;
+			border: 0;
+			margin: 4px;
+			padding: 5px;
+			&:hover {
+				background: #b6b1c0;
+			}
+			&:focus {
+				outline: none;
+				background: #b6b1c0;
+			}
+		}
+	}
+}

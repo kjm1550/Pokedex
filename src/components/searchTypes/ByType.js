@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/ByType.scss';
 
 class ByType extends React.Component {
 	constructor(props) {
@@ -14,15 +15,15 @@ class ByType extends React.Component {
 			.then((response) => {
 				this.setState({
 					type: response,
-					types: response.results,
+					types: response.results.slice(0, 18),
 				});
 			});
 	}
 	render() {
 		return (
-			<div>
+			<div className="searchTool">
 				<p>Select a Type to Search For!</p>
-				<div>
+				<div className="searchToolButton">
 					{this.state.types.map((type, index) => (
 						<button key={index} className={type.name} onClick={() => this.props.onClick(type.url)}>
 							{type.name}

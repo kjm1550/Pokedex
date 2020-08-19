@@ -6,8 +6,13 @@
 	background: #d3cce3; /* fallback */
 	background: -webkit-linear-gradient(to bottom, #e9e4f0, #d3cce3);
 	background: linear-gradient(to bottom, #e9e4f0, #d3cce3);
-}
-h1 {
-	text-align: center;
-	padding: 24px;
+	.AppContainer {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+		h1 {
+			text-align: center;
+			padding: 24px;
+		}
+	}
 }

@@ -21,9 +21,11 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Pokedex</h1>
-				<PokemonSearch onClick={(i) => this.handleClick(i)} />
-				<Results TypeSelectedURL={this.state.TypeSelectedURL} />
+				<div className="AppContainer">
+					<h1>Pokedex</h1>
+					<PokemonSearch onClick={(i) => this.handleClick(i)} />
+					<Results TypeSelectedURL={this.state.TypeSelectedURL} />
+				</div>
 			</div>
 		);
 	}
