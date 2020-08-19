@@ -24,7 +24,9 @@ class ByType extends React.Component {
 				<p>Select a Type to Search For!</p>
 				<div>
 					{this.state.types.map((type, index) => (
-						<button className={type.name}>{type.name}</button>
+						<button key={index} className={type.name} onClick={() => this.props.onClick(type.url)}>
+							{type.name}
+						</button>
 					))}
 				</div>
 			</div>

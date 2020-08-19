@@ -14,9 +14,14 @@ class PokemonSearch extends React.Component {
 	setType(searchBy) {
 		this.setState({
 			SearchType: searchBy,
-			test: 'yep',
 		});
 	}
+
+	/*handleClick(i) {
+		this.setState({
+			TypeSelected: i,
+		});
+	}*/
 
 	render() {
 		return (
@@ -24,7 +29,7 @@ class PokemonSearch extends React.Component {
 				<div>
 					<button onClick={() => this.setType('type')}>Types</button>
 				</div>
-				<div>{this.state.SearchType === 'type' && <ByType />}</div>
+				<div>{this.state.SearchType === 'type' && <ByType onClick={(i) => this.props.onClick(i)} />}</div>
 			</div>
 		);
 	}
