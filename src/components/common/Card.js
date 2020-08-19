@@ -7,6 +7,7 @@ class Card extends React.Component {
 		this.state = {
 			pokeUrl: this.props.pokemon.url,
 			pokemonInfo: {},
+			loaded: false,
 		};
 	}
 	componentWillMount() {
@@ -16,6 +17,7 @@ class Card extends React.Component {
 				this.setState({
 					pokemonInfo: response,
 					pokemonSprites: response.sprites.front_default,
+					loaded: true,
 				});
 			});
 	}
@@ -23,13 +25,19 @@ class Card extends React.Component {
 	render() {
 		return (
 			<div className="pokemonCard">
-				<h3 className="cardHeader">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
-				<img src={this.state.pokemonSprites} alt={'Picture of ' + this.props.pokemon.name} />
-				<p>
-					Height: {this.state.pokemonInfo.height / 10}m
-					<br />
-					Weight: {this.state.pokemonInfo.weight / 10}kg
-				</p>
+				{this.state.loaded ? (
+					<div>
+						<h3 className="cardHeader">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
+						<img src={this.state.pokemonSprites} alt={'Picture of ' + this.props.pokemon.name} />
+						<p>
+							Height: {this.state.pokemonInfo.height / 10}m
+							<br />
+							Weight: {this.state.pokemonInfo.weight / 10}kg
+						</p>
+					</div>
+				) : (
+					<p>Loading...</p>
+				)}
 			</div>
 		);
 	}
