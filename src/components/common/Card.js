@@ -26,9 +26,9 @@ class Card extends React.Component {
 				<h3 className="cardHeader">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
 				<img src={this.state.pokemonSprites} alt={'Picture of ' + this.props.pokemon.name} />
 				<p>
-					Height: {this.state.pokemonInfo.height} kg
+					Height: {this.state.pokemonInfo.height / 10}m
 					<br />
-					Weight: {this.state.pokemonInfo.weight} cm
+					Weight: {this.state.pokemonInfo.weight / 10}kg
 				</p>
 			</div>
 		);
