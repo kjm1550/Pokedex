@@ -24,22 +24,28 @@ class Results extends React.Component {
 			});
 	}
 	componentDidUpdate() {
-		if (this.props.TypeSelectedURL) {
-			fetch(this.props.TypeSelectedURL)
-				.then((res) => res.json())
-				.then((response) => {
-					this.setState({
-						filterPokemonList: response.pokemon.map((pokemon) => pokemon.pokemon),
-						finalPokemonList: this.state.pokemonList.filter((o1) =>
-							this.state.filterPokemonList.some((o2) => o1.name === o2.name)
-						),
+		switch (this.props.LastUpdated) {
+			case 'TypeSelectedURL':
+				fetch(this.props.TypeSelectedURL)
+					.then((res) => res.json())
+					.then((response) => {
+						this.setState({
+							filterPokemonList: response.pokemon.map((pokemon) => pokemon.pokemon),
+							finalPokemonList: this.state.pokemonList.filter((o1) =>
+								this.state.filterPokemonList.some((o2) => o1.name === o2.name)
+							),
+						});
 					});
-				});
-			//
-			/*this.setState({
-				finalPokemonList: this.state.pokemonList.filter((o1) => this.state.filterPokemonList.some((o2) => o1.name === o2.name)),
-				
-			});*/
+				break;
+			case 'FirstLetter':
+				fetch('http://pokeapi.co/api/v2/pokemon?limit=1')
+					.then((res) => res.json())
+					.then((response) => {
+						this.setState({
+							finalPokemonList: this.state.pokemonList.filter((pokemon) => pokemon.name[0] === this.props.FirstLetter),
+						});
+					});
+				break;
 		}
 	}
 

@@ -3,6 +3,7 @@ import './styles/PokemonSearch.scss';
 
 // other components
 import ByType from './searchTypes/ByType';
+import FirstLetter from './searchTypes/FirstLetter';
 
 class PokemonSearch extends React.Component {
 	constructor(props) {
@@ -22,9 +23,14 @@ class PokemonSearch extends React.Component {
 		return (
 			<div>
 				<div className="searchProcesses">
+					<h2>Filters: </h2>
 					<button onClick={() => this.setType('type')}>Types</button>
+					<button onClick={() => this.setType('letter')}>First Letter</button>
 				</div>
-				<div>{this.state.SearchType === 'type' && <ByType onClick={(i) => this.props.onClick(i)} />}</div>
+				<div>
+					{this.state.SearchType === 'type' && <ByType onClick={(i) => this.props.onClick(i, 'typeURL')} />}
+					{this.state.SearchType === 'letter' && <FirstLetter onClick={(i) => this.props.onClick(i, 'firstLetter')} />}
+				</div>
 			</div>
 		);
 	}

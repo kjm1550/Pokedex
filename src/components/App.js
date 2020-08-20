@@ -9,12 +9,21 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			LastUpdated: '',
 			TypeSelectedURL: '',
+			FirstLetter: '',
 		};
 	}
-	handleClick(i) {
+	setTypeSelectedURL(i) {
 		this.setState({
 			TypeSelectedURL: i,
+			LastUpdated: 'TypeSelectedURL',
+		});
+	}
+	setFirstLetter(i) {
+		this.setState({
+			FirstLetter: i,
+			LastUpdated: 'FirstLetter',
 		});
 	}
 
@@ -23,8 +32,17 @@ class App extends React.Component {
 			<div className="App">
 				<div className="AppContainer">
 					<h1>Pokedex</h1>
-					<PokemonSearch onClick={(i) => this.handleClick(i)} />
-					<Results TypeSelectedURL={this.state.TypeSelectedURL} />
+					<PokemonSearch
+						onClick={(i, searchBy) => {
+							if (searchBy === 'typeURL') this.setTypeSelectedURL(i);
+							if (searchBy === 'firstLetter') this.setFirstLetter(i);
+						}}
+					/>
+					<Results
+						LastUpdated={this.state.LastUpdated}
+						TypeSelectedURL={this.state.TypeSelectedURL}
+						FirstLetter={this.state.FirstLetter}
+					/>
 				</div>
 			</div>
 		);
