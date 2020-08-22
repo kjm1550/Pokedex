@@ -26,6 +26,11 @@ class App extends React.Component {
 			LastUpdated: 'FirstLetter',
 		});
 	}
+	clearSearch() {
+		this.setState({
+			LastUpdated: 'None',
+		});
+	}
 
 	render() {
 		return (
@@ -36,6 +41,7 @@ class App extends React.Component {
 						onClick={(i, searchBy) => {
 							if (searchBy === 'typeURL') this.setTypeSelectedURL(i);
 							if (searchBy === 'firstLetter') this.setFirstLetter(i);
+							if (searchBy === 'none') this.clearSearch();
 						}}
 					/>
 					<Results

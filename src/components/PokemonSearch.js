@@ -26,6 +26,14 @@ class PokemonSearch extends React.Component {
 					<h2>Filters: </h2>
 					<button onClick={() => this.setType('type')}>Types</button>
 					<button onClick={() => this.setType('letter')}>First Letter</button>
+					<button
+						onClick={() => {
+							this.setType('');
+							return this.props.onClick(8, 'none');
+						}}
+					>
+						Clear Search
+					</button>
 				</div>
 				<div>
 					{this.state.SearchType === 'type' && <ByType onClick={(i) => this.props.onClick(i, 'typeURL')} />}
