@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/Results.scss';
 
 import Card from './common/Card';
 

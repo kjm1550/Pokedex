@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/ByType.scss';
 
 class ByType extends React.Component {
 	constructor(props) {

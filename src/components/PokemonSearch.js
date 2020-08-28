@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/PokemonSearch.scss';
 
 // other components
 import ByType from './searchTypes/ByType';
