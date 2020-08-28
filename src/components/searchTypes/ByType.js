@@ -10,7 +10,7 @@ class ByType extends React.Component {
 		};
 	}
 	componentWillMount() {
-		fetch('http://pokeapi.co/api/v2/type')
+		fetch('https://pokeapi.co/api/v2/type')
 			.then((res) => res.json())
 			.then((response) => {
 				this.setState({

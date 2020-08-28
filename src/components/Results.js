@@ -14,7 +14,7 @@ class Results extends React.Component {
 	}
 
 	componentWillMount() {
-		fetch('http://pokeapi.co/api/v2/pokemon?limit=251')
+		fetch('https://pokeapi.co/api/v2/pokemon?limit=251')
 			.then((res) => res.json())
 			.then((response) => {
 				this.setState({
@@ -38,7 +38,7 @@ class Results extends React.Component {
 					});
 				break;
 			case 'FirstLetter':
-				fetch('http://pokeapi.co/api/v2/pokemon?limit=1')
+				fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
 					.then((res) => res.json())
 					.then((response) => {
 						this.setState({
@@ -47,7 +47,7 @@ class Results extends React.Component {
 					});
 				break;
 			default:
-				fetch('http://pokeapi.co/api/v2/pokemon?limit=1')
+				fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
 					.then((res) => res.json())
 					.then((response) => {
 						this.setState((state) => {
