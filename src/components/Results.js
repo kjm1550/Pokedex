@@ -12,7 +12,7 @@ class Results extends React.Component {
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		fetch('https://pokeapi.co/api/v2/pokemon?limit=251')
 			.then((res) => res.json())
 			.then((response) => {

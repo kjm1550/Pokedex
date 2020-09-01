@@ -9,7 +9,7 @@ class Card extends React.Component {
 			loaded: false,
 		};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		fetch(this.state.pokeUrl)
 			.then((res) => res.json())
 			.then((response) => {
@@ -26,15 +26,17 @@ class Card extends React.Component {
 		return (
 			<div>
 				{this.state.loaded ? (
-					<divc className={'pokemonCard ' + this.state.pokemonInfo.types[0].type.name}>
-						<h3 className="cardHeader">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
+					<div className={'pokemonCard ' + this.state.pokemonInfo.types[0].type.name}>
+						<h3 className="textCapitalize">{this.state.pokemonInfo.id + '. ' + this.props.pokemon.name}</h3>
 						<img src={this.state.pokemonSprites} alt={'Picture of ' + this.props.pokemon.name} />
-						<p>
-							Height: {this.state.pokemonInfo.height / 10}m
-							<br />
-							Weight: {this.state.pokemonInfo.weight / 10}kg
+						<p className="textCapitalize">
+							{this.state.pokemonInfo.types[1]
+								? this.state.pokemonInfo.types[0].type.name + ' &  ' + this.state.pokemonInfo.types[1].type.name
+								: this.state.pokemonInfo.types[0].type.name}
 						</p>
-					</divc>
+						<p>Height: {this.state.pokemonInfo.height / 10}m</p>
+						<p>Weight: {this.state.pokemonInfo.weight / 10}kg</p>
+					</div>
 				) : (
 					<div className="pokemonCard ">
 						<p>Loading...</p>

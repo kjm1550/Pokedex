@@ -8,7 +8,7 @@ class ByType extends React.Component {
 			types: [],
 		};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		fetch('https://pokeapi.co/api/v2/type')
 			.then((res) => res.json())
 			.then((response) => {
