@@ -1,5 +1,5 @@
 .pokemonCard {
-	width: 135px;
+	width: 145px;
 	height: 200px;
 	padding: 4px;
 	margin: 16px;
@@ -10,6 +10,60 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	&.normal {
+		background: #ffffff;
+	}
+	&.fighting {
+		background: #b86a2b;
+	}
+	&.flying {
+		background: #f1f1f9;
+	}
+	&.poison {
+		background: #a4447c;
+	}
+	&.ground {
+		background: #9a6b3a;
+	}
+	&.rock {
+		background: #7e6b3f;
+	}
+	&.bug {
+		background: #a1b30d;
+	}
+	&.ghost {
+		background: #dac5ae;
+	}
+	&.steel {
+		background: #858482;
+	}
+	&.fire {
+		background: #eb7d53;
+	}
+	&.water {
+		background: #9ac3f3;
+	}
+	&.grass {
+		background: #a2c776;
+	}
+	&.electric {
+		background: #ecdc34;
+	}
+	&.psychic {
+		background: #ec8081;
+	}
+	&.ice {
+		background: #5b8db1;
+	}
+	&.dragon {
+		background: #4173c8;
+	}
+	&.dark {
+		background: #51575e;
+	}
+	&.fairy {
+		background: #fce0c8;
+	}
 }
 .cardHeader {
 	text-transform: capitalize;
