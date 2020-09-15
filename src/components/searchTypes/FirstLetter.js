@@ -32,7 +32,13 @@ class ByType extends React.Component {
 				'y',
 				'z',
 			],
+			activeIndex: '',
 		};
+	}
+	handleClick(index) {
+		this.setState({
+			activeIndex: index,
+		});
 	}
 
 	render() {
@@ -41,7 +47,14 @@ class ByType extends React.Component {
 				<p>Select the First Letter to Search For!</p>
 				<div className="searchToolButton">
 					{this.state.letters.map((letter, index) => (
-						<button key={index} onClick={() => this.props.onClick(letter)}>
+						<button
+							key={index}
+							onClick={() => {
+								this.props.onClick(letter);
+								this.handleClick(index);
+							}}
+							className={index === this.state.activeIndex ? 'active' : ''}
+						>
 							{letter}
 						</button>
 					))}

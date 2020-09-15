@@ -6,6 +6,7 @@ class ByType extends React.Component {
 		this.state = {
 			type: {},
 			types: [],
+			activeIndex: '',
 		};
 	}
 	componentDidMount() {
@@ -18,13 +19,25 @@ class ByType extends React.Component {
 				});
 			});
 	}
+	handleClick(index) {
+		this.setState({
+			activeIndex: index,
+		});
+	}
 	render() {
 		return (
 			<div className="searchTool">
 				<p>Select a Type to Search For!</p>
 				<div className="searchToolButton">
 					{this.state.types.map((type, index) => (
-						<button key={index} className={type.name} onClick={() => this.props.onClick(type.url)}>
+						<button
+							key={index}
+							className={index === this.state.activeIndex ? type.name + ' active' : type.name}
+							onClick={() => {
+								this.props.onClick(type.url);
+								this.handleClick(index);
+							}}
+						>
 							{type.name}
 						</button>
 					))}

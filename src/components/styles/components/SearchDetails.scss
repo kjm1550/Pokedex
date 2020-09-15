@@ -17,6 +17,9 @@
 			border: 0;
 			margin: 4px;
 			padding: 5px;
+			&.active {
+				background: #b6b1c0;
+			}
 			&:hover {
 				background: #b6b1c0;
 			}
