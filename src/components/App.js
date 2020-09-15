@@ -28,7 +28,9 @@ class App extends React.Component {
 	}
 	clearSearch() {
 		this.setState({
-			LastUpdated: 'None',
+			LastUpdated: '',
+			TypeSelectedURL: '',
+			FirstLetter: '',
 		});
 	}
 

@@ -7,7 +7,10 @@ class Results extends React.Component {
 		super(props);
 		this.state = {
 			pokemonList: [],
-			filterPokemonList: [],
+			typePreFilterPokemonList: [],
+			typeFilterPokemonList: [],
+			letterPreFilterPokemonList: [],
+			letterFilterPokemonList: [],
 			finalPokemonList: [],
 		};
 	}
@@ -25,25 +28,68 @@ class Results extends React.Component {
 	componentDidUpdate() {
 		switch (this.props.LastUpdated) {
 			case 'TypeSelectedURL':
-				fetch(this.props.TypeSelectedURL)
-					.then((res) => res.json())
-					.then((response) => {
-						this.setState({
-							filterPokemonList: response.pokemon.map((pokemon) => pokemon.pokemon),
-							finalPokemonList: this.state.pokemonList.filter((o1) =>
-								this.state.filterPokemonList.some((o2) => o1.name === o2.name)
-							),
+				if (this.props.FirstLetter) {
+					fetch(this.props.TypeSelectedURL)
+						.then((res) => res.json())
+						.then((response) => {
+							this.setState({
+								typePreFilterPokemonList: response.pokemon.map((pokemon) => pokemon.pokemon),
+								typeFilterPokemonList: this.state.pokemonList.filter((o1) =>
+									this.state.typePreFilterPokemonList.some((o2) => o1.name === o2.name)
+								),
+								finalPokemonList: this.state.letterPreFilterPokemonList.filter((o1) =>
+									this.state.typePreFilterPokemonList.some((o2) => o1.name === o2.name)
+								),
+							});
 						});
-					});
+				} else {
+					fetch(this.props.TypeSelectedURL)
+						.then((res) => res.json())
+						.then((response) => {
+							this.setState({
+								typePreFilterPokemonList: response.pokemon.map((pokemon) => pokemon.pokemon),
+								typeFilterPokemonList: this.state.pokemonList.filter((o1) =>
+									this.state.typePreFilterPokemonList.some((o2) => o1.name === o2.name)
+								),
+								finalPokemonList: this.state.pokemonList.filter((o1) =>
+									this.state.typePreFilterPokemonList.some((o2) => o1.name === o2.name)
+								),
+							});
+						});
+				}
 				break;
 			case 'FirstLetter':
-				fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
-					.then((res) => res.json())
-					.then((response) => {
-						this.setState({
-							finalPokemonList: this.state.pokemonList.filter((pokemon) => pokemon.name[0] === this.props.FirstLetter),
+				if (this.props.TypeSelectedURL) {
+					fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
+						.then((res) => res.json())
+						.then((response) => {
+							this.setState({
+								finalPokemonList: this.state.typeFilterPokemonList.filter(
+									(pokemon) => pokemon.name[0] === this.props.FirstLetter
+								),
+								letterFilterPokemonList: this.state.typeFilterPokemonList.filter(
+									(pokemon) => pokemon.name[0] === this.props.FirstLetter
+								),
+								letterPreFilterPokemonList: this.state.pokemonList.filter(
+									(pokemon) => pokemon.name[0] === this.props.FirstLetter
+								),
+							});
 						});
-					});
+				} else {
+					fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
+						.then((res) => res.json())
+						.then((response) => {
+							this.setState({
+								finalPokemonList: this.state.pokemonList.filter((pokemon) => pokemon.name[0] === this.props.FirstLetter),
+								letterFilterPokemonList: this.state.pokemonList.filter(
+									(pokemon) => pokemon.name[0] === this.props.FirstLetter
+								),
+								letterPreFilterPokemonList: this.state.pokemonList.filter(
+									(pokemon) => pokemon.name[0] === this.props.FirstLetter
+								),
+							});
+						});
+				}
 				break;
 			default:
 				fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
