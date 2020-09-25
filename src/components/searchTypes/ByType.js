@@ -34,7 +34,7 @@ class ByType extends React.Component {
 							key={index}
 							className={index === this.state.activeIndex ? type.name + ' active' : type.name}
 							onClick={() => {
-								this.props.onClick(type.url);
+								this.props.onClick(type.url, type.name);
 								this.handleClick(index);
 							}}
 						>

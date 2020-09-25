@@ -35,9 +35,18 @@ class PokemonSearch extends React.Component {
 					</button>
 				</div>
 				<div>
-					{this.state.SearchType === 'type' && <ByType onClick={(i) => this.props.onClick(i, 'typeURL')} />}
+					{this.state.SearchType === 'type' && <ByType onClick={(i, type) => this.props.onClick(i, 'typeURL', type)} />}
 					{this.state.SearchType === 'letter' && <FirstLetter onClick={(i) => this.props.onClick(i, 'firstLetter')} />}
 				</div>
+				{(this.props.Type || this.props.FirstLetter) && (
+					<div className="searchTool">
+						<p>Applied Filters:</p>
+						<div className="appliedFilters">
+							{this.props.Type && <p>{this.props.Type}</p>}
+							{this.props.FirstLetter && <p>{this.props.FirstLetter}</p>}
+						</div>
+					</div>
+				)}
 			</div>
 		);
 	}

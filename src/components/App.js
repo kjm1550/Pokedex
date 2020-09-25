@@ -11,13 +11,15 @@ class App extends React.Component {
 		this.state = {
 			LastUpdated: '',
 			TypeSelectedURL: '',
+			TypeSelected: '',
 			FirstLetter: '',
 		};
 	}
-	setTypeSelectedURL(i) {
+	setTypeSelectedURL(i, type) {
 		this.setState({
 			TypeSelectedURL: i,
 			LastUpdated: 'TypeSelectedURL',
+			TypeSelected: type,
 		});
 	}
 	setFirstLetter(i) {
@@ -30,6 +32,7 @@ class App extends React.Component {
 		this.setState({
 			LastUpdated: '',
 			TypeSelectedURL: '',
+			TypeSelected: '',
 			FirstLetter: '',
 		});
 	}
@@ -40,8 +43,10 @@ class App extends React.Component {
 				<div className="AppContainer">
 					<h1>Pokedex</h1>
 					<PokemonSearch
-						onClick={(i, searchBy) => {
-							if (searchBy === 'typeURL') this.setTypeSelectedURL(i);
+						Type={this.state.TypeSelected}
+						FirstLetter={this.state.FirstLetter}
+						onClick={(i, searchBy, type) => {
+							if (searchBy === 'typeURL') this.setTypeSelectedURL(i, type);
 							if (searchBy === 'firstLetter') this.setFirstLetter(i);
 							if (searchBy === 'none') this.clearSearch();
 						}}
