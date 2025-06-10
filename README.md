@@ -1,13 +1,36 @@
-# My Pokédex Web App
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-For this React project I wanted to create a reactive interface that utilized React in many different ways. I also wanted to incorporate an API. Once I discovered the [PokéAPI](https://pokeapi.co/), I knew building a Pokédex Web App would be a great way to do all that and combine it with one of my favorite video games, Pokémon.
+## Getting Started
 
-I created a component to display all of the Pokémon using a flexbox layout. A child component that would be an info card for a Pokémon was also created. The child component would be rendered for each Pokémon, displaying their name, Pokédex number, picture, type(s), weight, and height.
+First, run the development server:
 
-![Pokémon info cards](/public/images/pokemon_display_type.PNG)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-I wanted to do more than just display the Pokémon's data, I also wanted to create a filter feature based off the features of the Pokémon. So, I created a component that would house the different buttons to active the different filter methods. These buttons would change the state and make the interface display a child component that would contain the tools the user would need to define the filter.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-![Pokémon filter tools](/public/images/pokemon_search.PNG)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Once the filter has been defined the component that contains all of the Pokémon information is refreshed and shows the Pokémon that fit the filter. Once a new filter is selected the old one is no longer used. There is also a button to remove the applied filter.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
