@@ -4,13 +4,11 @@ import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-
 const lato = Lato({
   variable: "--font-lato",
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,13 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`bg-slate-900 ${lato.variable} antialiased`}
-      >
+      <body className={`bg-slate-900 ${lato.variable} antialiased`}>
         <Header />
-        <main className="py-6">
-        {children}
-        </main>
+        <main className="py-6">{children}</main>
         <Footer />
       </body>
     </html>
