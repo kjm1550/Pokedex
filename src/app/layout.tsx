@@ -28,7 +28,7 @@ export default function RootLayout({
         className={`bg-slate-900 ${lato.variable} antialiased`}
       >
         <Header />
-        <main>
+        <main className="py-6">
         {children}
         </main>
         <Footer />
