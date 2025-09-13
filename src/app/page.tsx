@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <div className="font-[family-name:var(--font-lato)]">
       <h1 className="text-4xl my-8 text-center text-gray-100">The Pokedex</h1>
-      <ul className="max-w-5xl px-4 lg:px-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-items-center ">
+      <ul className="max-w-6xl px-4 lg:px-8 mx-auto flex flex-wrap gap-4 lg:gap-6 items-center justify-center ">
         {/* Need to add typescript to it */}
         {pokemon.map((onePokemon, index) => (
           <li key={index} className="p-4">
