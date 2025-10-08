@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-slate-900 ${lato.variable} antialiased`}>
         <Header />
-        <main className="py-6">{children}</main>
+        <main className="py-6 font-[family-name:var(--font-lato)]">{children}</main>
         <Footer />
       </body>
     </html>

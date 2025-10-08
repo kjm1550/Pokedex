@@ -27,9 +27,9 @@ async function getPokemon() {
 export default async function Home() {
   const pokemon = await getPokemon();
   return (
-    <div className="font-[family-name:var(--font-lato)]">
+    <div className="max-w-6xl px-4 lg:px-8 mx-auto">
       <h1 className="text-4xl my-8 text-center text-gray-100">The Pokedex</h1>
-      <ul className="max-w-6xl px-4 lg:px-8 mx-auto flex flex-wrap gap-4 lg:gap-6 items-center justify-center ">
+      <ul className="flex flex-wrap gap-4 lg:gap-6 items-center justify-center ">
         {/* Need to add typescript to it */}
         {pokemon.map((onePokemon, index) => (
           <li key={index} className="p-4">
