@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import PokemonCircle from "./components/pokemonCircle";
+
 function getLastNumberFromUrl(url) {
   const match = url.match(/(\d+)(?!.*\d)/);
   if (match && match[1]) {
