@@ -10,7 +10,7 @@ interface PokemonPageProps {
 }
 
 export default async function Page({ params }: PokemonPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${slug}`);
   const pokemonInfo = await data.json();
@@ -18,7 +18,7 @@ export default async function Page({ params }: PokemonPageProps) {
   const dataSpecies = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${slug}`);
   const pokemonSpecies = await dataSpecies.json();
 
-  console.log(pokemonInfo);
+  // console.log(pokemonInfo);
 
   const heightInMeters = pokemonInfo.height / 10;
   const { feet, inches } = metersToFeetAndInches(heightInMeters);

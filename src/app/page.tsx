@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import PokemonCircle from "./components/pokemonCircle";
-
-function getLastNumberFromUrl(url) {
+function getLastNumberFromUrl(url: string) {
   const match = url.match(/(\d+)(?!.*\d)/);
   if (match && match[1]) {
     return parseInt(match[1], 10);
@@ -15,7 +13,7 @@ async function getPokemon() {
   // For now, just pulling the first 4 generations of pokemon
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=494");
   const { results } = await res.json();
-  const pokemon = results.map((onePokemon) => {
+  const pokemon = results.map((onePokemon: object) => {
     const imageNumber = getLastNumberFromUrl(onePokemon.url);
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${imageNumber}.png`;
     return {
@@ -33,7 +31,7 @@ export default async function Home() {
       <h1 className="text-4xl my-8 text-center text-gray-100">The Pokedex</h1>
       <ul className="flex flex-wrap gap-4 lg:gap-6 items-center justify-center ">
         {/* Need to add typescript to it */}
-        {pokemon.map((onePokemon, index) => (
+        {pokemon.map((onePokemon: object, index: number) => (
           <li key={index} className="p-4">
             <Link href={`/pokemon/${getLastNumberFromUrl(onePokemon.url)}`} className="flex flex-col items-center group">
               <div className="relative">
